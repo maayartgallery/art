@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maay Art Gallery - Where Art Speaks Without Words</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="Common.css">
+    <script type="text/javascript" src="common.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script>
+        (function(){
+            emailjs.init("zQPuiBz4dcjJz1wbJ"); // Replace with your actual EmailJS public key
+        })();
+    </script>
+</head>
+<body>
+    
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+        <div class="hero-slider">
+            <div class="hero-slide active"></div>
+            <div class="hero-slide"></div>
+            <div class="hero-slide"></div>
+        </div>
+        <div class="hero-content d-flex flex-column align-items-center">
+            <div class="hero-title d-flex align-items-center gap-3">
+                <img src="logo/logo.png" alt="Maay Art Gallery Logo" class="hero-logo">
+                <h1>Maay Art Gallery</h1>
+            </div>
+            <p>Where Art Speaks Without Words</p>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories-section" id="categories">
+        <div class="container">
+            <h2 class="section-title">Explore Our Collections</h2>
+            <p class="section-subtitle">Discover Timeless Masterpieces</p>
+            <div id="collection-buttons" class="collection-buttons text-center mt-4"></div>
+            <div class="category-scroll-wrapper">
+                <div class="category-container" id="category-container"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section" id="dynamic-gallery">
+        <div class="container">
+            <button class="back-btn" onclick="hideGallery()">
+                <i class="fas fa-arrow-left"></i> Back to Categories
+            </button>
+            <h2 class="section-title" id="gallery-title"></h2>
+            <div class="gallery-grid" id="gallery-grid"></div>
+        </div>
+    </section>
+
+    <!-- Artist Section -->
+    <section class="artist-section" id="artist">
+        <div class="container">
+            <h2 class="section-title">Meet The Artist</h2>
+            <p class="section-subtitle">A Journey Through Creativity</p>
+
+            <div class="artist-content">
+                <h3 class="artist-name">Mency Maradiya</h3>
+
+                <p class="artist-text highlight">
+                    "Art is not what you see, but what you make others see.  
+                    Every canvas, every stroke, carries a piece of my soul."
+                </p>
+
+                <div class="artist-divider"></div>
+
+                <p class="artist-text">
+                    For Mency Maradiya, art has been a lifelong companion — a silent language
+                    through which emotions, culture, and imagination find their voice.
+                    With years of dedicated practice and artistic exploration, she has mastered
+                    multiple art forms that blend traditional craftsmanship with modern creativity.
+                </p>
+
+                <p class="artist-text">
+                    Her work reflects deep skill, patience, and passion. From earthy textures
+                    and intricate patterns to expressive abstract compositions, each creation
+                    tells a story and leaves a lasting impression on the viewer.
+                </p>
+
+                <p class="artist-text">
+                    Proficient in Lippan art, mud mirror work, dot art, texture art, clay art,
+                    canvas painting, embossed painting, Warli art, abstract art, and 3D printing,
+                    Mency's artistic versatility sets her apart. Every artwork is thoughtfully
+                    crafted, unique, and filled with soulful expression.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enquiry Section -->
+     <form class="enquiry-form" onsubmit="handleSubmit(event)">
+        <input type="text" class="form-control" placeholder="Your Name" required name="from_name">
+        <input type="email" class="form-control" placeholder="Your Email" required name="from_email">
+        <select class="form-select" required style="color: black;" name="interest">
+            <option value="" selected disabled>Which artwork interests you?</option>
+            <option value="charcoal">Charcoal Sketch</option>
+            <option value="pencil">Pencil Sketch</option>
+            <option value="fabric">Fabric Painting</option>
+            <option value="acrylic">Acrylic Painting</option>
+            <option value="mandala">Mandala Art</option>
+            <option value="lippan">Lippan Art</option>
+            <option value="dot">Dot Art</option>
+            <option value="mud_mirror">Mud Mirror Work</option>
+            <option value="texture">Texture Art</option>
+            <option value="clay">Clay Art</option>
+            <option value="canvas">Canvas Painting</option>
+            <option value="embossed">Embossed Painting</option>
+            <option value="3d_printing">3D Printing</option>
+            <option value="warli">Warli Art</option>
+            <option value="abstract">Abstract Art</option>
+            <option value="custom">Custom Artwork Request</option>
+        </select>
+        <textarea class="form-control" rows="4" placeholder="Tell us more about your interest..." name="message"></textarea>
+        <button type="submit" class="submit-btn">Submit Enquiry</button>
+    </form>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <h2 class="section-title">About Maay Art Gallery</h2>
+            <p class="section-subtitle">Celebrating Timeless Beauty</p>
+            <div class="about-content">
+                <p>Maay Art Gallery is a contemporary space dedicated to celebrating the timeless beauty of traditional and modern art forms...</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:MaayArtGallery@gmail.com">MaayArtGallery@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-instagram"></i>
+                        <a href="https://instagram.com/maayartgallery" target="_blank">@Maayartgallery</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="image-popup" class="image-popup">
+        <span class="popup-close">&times;</span>
+        <button class="popup-nav prev">&#10094;</button>
+        <img id="popup-img">
+        <button class="popup-nav next">&#10095;</button>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Maay Art Gallery. All rights reserved. | Designed with passion for art.</p>
+    </footer>
+</body>
+</html>
