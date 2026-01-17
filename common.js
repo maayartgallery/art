@@ -53,7 +53,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
         function preloadNext() {
             const img = new Image();
-            img.src = `https://raw.githubusercontent.com/maayartgallery/-/main/images/${folder}/${index}.jpg`;
+            img.src = `https://raw.githubusercontent.com/maayartgallery/art/main/images/${folder}/${index}.jpg`;
 
             img.onload = () => {
                 images.push(index);
@@ -67,11 +67,11 @@ window.addEventListener("DOMContentLoaded", () => {
         }
 
         function startSlider() {
-            front.src = `https://raw.githubusercontent.com/maayartgallery/-/main/images/${folder}/${images[0]}.jpg`;
+            front.src = `https://raw.githubusercontent.com/maayartgallery/art/main/images/${folder}/${images[0]}.jpg`;
 
             setInterval(() => {
                 const nextIndex = (current + 1) % images.length;
-                back.src = `https://raw.githubusercontent.com/maayartgallery/-/main/images/${folder}/${images[nextIndex]}.jpg`;
+                back.src = `https://raw.githubusercontent.com/maayartgallery/art/main/images/${folder}/${images[nextIndex]}.jpg`;
 
                 front.className = `category-image img-front ${direction === "left" ? "out-left" : "out-right"}`;
                 back.className = `category-image img-back ${direction === "left" ? "in-right" : "in-left"}`;
@@ -174,7 +174,7 @@ window.addEventListener("DOMContentLoaded", () => {
         let index = 1;
 
         function loadNext() {
-            const imgPath = `https://raw.githubusercontent.com/maayartgallery/-/main/images/${folder}/${index}.jpg`;
+            const imgPath = `https://raw.githubusercontent.com/maayartgallery/art/main/images/${folder}/${index}.jpg`;
             const img = new Image();
             img.src = imgPath;
 
@@ -284,3 +284,4 @@ window.addEventListener("DOMContentLoaded", () => {
     };
 
 });
+
